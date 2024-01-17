@@ -1,0 +1,90 @@
+/* body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: blue;
+    color:#00c8ff;
+   
+}
+
+
+#tree-container {
+    background-color: #ffffff;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-image: linear-gradient(117deg, #dd00ff 1.17%, rgba(105, 72, 225, 0.81) 100%);
+    color: #00c8ff;
+    margin: 10px; /* Remove margin */
+}
+
+#tree-container {
+    position: absolute; /* Change to absolute positioning */
+    left: 10px; /* Start from the left end of the screen */
+    top: 70px;;
+    background-color: transparent;
+    /* border: #1900ff solid 3px;
+    border-radius: 5px; */
+    height: 100vh;
+}
+
+#element-label, #parent-id {
+    margin-right: 10px;
+    border-radius: 30px;
+    outline:none;
+   
+}
+
+.label-element
+{
+    padding-top: 10px;
+    margin-right: 8px;
+    color:#000000;
+}
+
+.button-container {
+    display: flex;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: #00c8ff;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border-color: darkblue;
+    margin-right: 8px;
+
+}
+
+.button-container button:hover {
+    background-color: rgb(5, 52, 204);
+    color:#00c8ff;
+}
+
+.flowchart-element {
+    cursor: grab;
+}
+.flowchart-element.active {
+    cursor: grabbing;
+}
+
+.flowchart-element rect {
+    fill: #61B7CF;
+    border: 3px solid blue;
+   
+}
+
+.flowchart-element text {
+    fill: white;
+}
+
+.flowchart-link {
+    stroke: #ffffff;
+}

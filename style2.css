@@ -1,0 +1,137 @@
+html {
+  width: 1440px;
+  height: 1024px;
+
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: url(images/stefan-stefancik-pzA7QWNCIYg-unsplash.jpg);
+  /* width: 768px;
+  height: 1151px; */
+  flex-shrink: 0;
+
+  overflow: hidden;
+  /* background-position: center center; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 33% 100%;
+}
+
+.rectangle6 {
+  display: block;
+  width: 77vw;
+  height: 100vh;
+  position: absolute;
+  /* left: 328px; */
+  left: 23%;
+  right: 762px;
+  /* top: 42px;
+  bottom: 85px; */
+  flex-shrink: 0;
+  border-radius: 140px 0px 0px 140px;
+  background: linear-gradient(92deg, #8F8D8C 40.39%, rgba(119, 115, 114, 0.00) 110.64%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#text1 {
+  display: block;
+  position: relative;
+  margin: 2%;
+  top: 10%;
+  right: 40%;
+  left: 40%;
+  bottom: 90%;
+  width: 244px;
+  height: 98px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#text2 {
+  width: 78px;
+  height: 28px;
+  position: relative;
+  top: 10%;
+  left: 10%;
+  /* flex-shrink: 0; */
+  color: #010101;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+}
+
+/* .rectangle7 {
+  display: block;
+  width: 726px;
+  height: 77px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #FFF;
+} */
+
+input {
+  display: block;
+  position: relative;
+  left: 10%;
+  width: 60%;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #FFF;
+}
+
+#btn {
+  border-radius: 28px;
+  background: #322f2f;
+  position: relative;
+  top: 45px;
+  left: 50%;
+  width: 20%;
+  height: 50px;
+  color: #FFF;
+  font-family: Inter;
+  font-size: large;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  flex-shrink: 0;
+}
+
+.bacck {
+  width: 107px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Inter;
+  font-size: large;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+  top: 55px;
+  left: 58%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:active {
+  color: #6154a0
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>workflow - Flowchart </title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="flow_style.css">
+</head>
+<body>
+    <div class="button-container">
+        <label class="label-element">Element Label:</label>
+        <input type="text" id="element-label" />
+        <button id="add-element">Add Element</button>
+        <label class="label-element">Parent ID:</label>
+        <input type="number" id="parent-id"  min="0" />
+        <button id="add-child">Add Child</button>
+    </div>
+    <div id="tree-container"></div>
+
+    <script>
+        const svg = d3.select("#tree-container")
+            .append("svg")
+            .attr("width", 1200)
+            .attr("height", 600);
+
+        const elements = [];
+        const links = [];
+
+        document.getElementById("add-element").addEventListener("click", () => {
+            const label = document.getElementById("element-label").value;
+            addFlowchartElement(label);
+        });
+
+        document.getElementById("add-child").addEventListener("click", () => {
+            const label = document.getElementById("element-label").value;
+            const parentId = parseInt(document.getElementById("parent-id").value);
+            addChildFlowchartElement(label, parentId);
+        });
+
+        function addFlowchartElement(label) {
+            const element = {
+                id: elements.length,
+                label: label,
+                x: 600,
+                y: 100,
+            };
+
+            // Check and limit the element position within the canvas
+            element.x = Math.max(0, Math.min(element.x, 1100)); // Adjust the canvas width
+            element.y = Math.max(0, Math.min(element.y, 500)); // Adjust the canvas height
+
+            elements.push(element);
+
+            updateFlowchart();
+        }
+
+        function addChildFlowchartElement(label, parentId) {
+            const parent = elements.find(element => element.id === parentId);
+            if (!parent) {
+                alert("Parent not found!");
+                return;
+            }
+
+            const element = {
+                id: elements.length,
+                label: label,
+                x: parent.x + 150,
+                y: parent.y + 100,
+            };
+
+            // Check and limit the child element position within the canvas
+            element.x = Math.max(0, Math.min(element.x, 1100)); // Adjust the canvas width
+            element.y = Math.max(0, Math.min(element.y, 500)); // Adjust the canvas height
+
+            elements.push(element);
+            connectElements(parent, element);
+
+            // Set the Parent ID input box value to the ID of the parent element
+            document.getElementById("parent-id").value = parentId;
+
+            updateFlowchart();
+        }
+
+        function updateFlowchart() {
+            // Elements
+            const node = svg.selectAll(".flowchart-element")
+                .data(elements, d => d.id);
+
+            const newNode = node.enter().append("g")
+                .attr("class", "flowchart-element")
+                .attr("transform", d => `translate(${d.x},${d.y})`);
+
+            newNode.append("rect")
+                .attr("width", 100)
+                .attr("height", 50)
+                .attr("fill", "#61B7CF");
+
+            newNode.append("text")
+                .attr("x", 50)
+                .attr("y", 25)
+                .attr("dy", "0.35em")
+                .style("text-anchor", "middle")
+                .style("fill", "white")
+                .text(d => d.label);
+
+            newNode.call(d3.drag()
+                .on("start", dragStarted)
+                .on("drag", dragged)
+                .on("end", dragEnded));
+
+            // Links
+            const link = svg.selectAll(".flowchart-link")
+                .data(links);
+
+            link.enter().append("line")
+                .attr("class", "flowchart-link")
+                .attr("stroke", "#000")
+                .attr("x1", d => d.source.x + 50)
+                .attr("y1", d => d.source.y + 50)
+                .attr("x2", d => d.target.x + 50)
+                .attr("y2", d => d.target.y);
+
+            // Update
+            node.transition()
+                .attr("transform", d => `translate(${d.x},${d.y})`);
+
+            link.transition()
+                .attr("x1", d => d.source.x + 50)
+                .attr("y1", d => d.source.y + 50)
+                .attr("x2", d => d.target.x + 50)
+                .attr("y2", d => d.target.y);
+
+            // Exit
+            node.exit().remove();
+            link.exit().remove();
+        }
+
+        function dragStarted(event, d) {
+            d3.select(this).raise().classed("active", true);
+        }
+
+        function dragged(event, d) {
+            d.x = event.x;
+            d.y = event.y;
+
+            // Check and limit the element position within the canvas
+            d.x = Math.max(0, Math.min(d.x, 1100)); // Adjust the canvas width
+            d.y = Math.max(0, Math.min(d.y, 500)); // Adjust the canvas height
+
+            updateFlowchart(); // Update links during drag.
+        }
+
+        function dragEnded(event, d) {
+            d3.select(this).classed("active", false);
+        }
+
+        function connectElements(source, target) {
+            const link = {
+                source: source,
+                target: target,
+            };
+            links.push(link);
+            updateFlowchart();
+        }
+
+        // Initial rendering
+        updateFlowchart();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

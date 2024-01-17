@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style5.css">
+    <title>Pomodoro-WorkFlow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="vista-bg"></div>
+    <div id="feh-pomodoro">
+        <div id="feh-pomodoro-overlay">
+            <img src="spinner.gif" alt="">
+        </div>
+
+        <span class="btn-icon" id="feh-toggle-settings"><i class="fa fa-cog"></i></span>
+
+        <div id="feh-timer-progress">
+            <svg class="circle-timer" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" class="circle-background"></circle>
+                <circle cx="50" cy="50" r="45" class="circle-progress"></circle>
+                <text id="feh-timer-time" x="50" y="50" text-anchor="middle" dy=".3em" font-size="18">25:00</text>
+                <text id="feh-timer-pause" x="50" y="68" text-anchor="middle" dy=".3em" font-size="7">Paused</text>
+                <text id="feh-timer-rest" x="50" y="68" text-anchor="middle" dy=".3em" font-size="7">Rest</text>
+            </svg>
+        </div>
+        
+        <div id="feh-timer-sessions">
+            <p id="feh-completed-label">Completed work sessions:</p>
+            <p id="feh-completed-sessions">0</p>
+        </div>
+
+        <div id="feh-timer-functions">
+            <div id="feh-timer-settings">
+                <span class="btn-icon" id="feh-close-settings"><i class="fa fa-times"></i></span>
+                <form id="feh-timer-form">
+                    <p class="feh-timer-line">
+                        <label for="work-duration">Pomodoro:</label>
+                        <input type="number" id="work-duration" value="25" min="1">
+                    </p>
+                    <p class="feh-timer-line">
+                        <label for="rest-duration">Rest:</label>
+                        <input type="number" id="rest-duration" value="5" min="1">
+                    </p>
+                </form>
+            </div>
+            <div id="feh-timer-buttons">
+                <button id="pause-btn"><i class="fa fa-pause"></i></button>
+                <button id="start-btn"><i class="fa fa-play"></i></button>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- music container  -->
+    <div class="music-container">
+        <div class="music-info">
+            <h4 id="title">Campfire</h4>
+            <div class="progress-container">
+                <div class="progress">
+
+                </div>
+            </div>
+        </div>
+
+        <audio src="mp3s/campfire.mp3" id="audio"></audio>
+        <!-- <audio src="mp3s/ambient.mp3" id="audio"></audio> -->
+
+        <div class="img-container">
+            <img src="images/campfire.jpg" alt="music-cover" id="cover">
+        </div>
+        <!-- <div class="img-container">
+            <img src="images/ambient.jpg" alt="music-cover" id="cover">
+        </div> -->
+
+
+        <div class="navigation">
+            <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+    </div>
+    <script src="script2.js"></script>
+    
+</body>
+</html>

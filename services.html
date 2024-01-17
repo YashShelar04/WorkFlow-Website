@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services-Workflow</title>
+  <link rel="stylesheet" href="style3.css">
+
+</head>
+
+<body>
+  <a href="index.html" id="home_link">Home</a>
+  <p id="heading">Services</p>
+
+  <div class="container">
+
+    <div class="items">
+      <img src="images/task_manager.jpeg" alt="Task_img" class="task1">
+      <p class="Heading1">Task Manager</p>
+
+
+      <p class="message">
+
+        Our advanced task manager tools: To-Do list helps you to organise work, prioritise tasks and
+        stay
+        focused on what needs to be accomplished. Flowchart feature helps you in designing and planning
+        workflows and visualising the steps and sequences of the contents of a topic.
+      </p>
+
+      <button class="buttons" id="first"><a href="todolist.html">To-Do-List</a></button>
+      <button class="buttons" id= " second"><a href="flowchart.html">Flowchart</a></button>
+
+    </div>
+
+    <div class="items">
+      <!-- productivity tools link -->
+      <img src="images/productivity.jpeg" alt="Prod_tools" class="task1">
+      <p class="Heading1"><a href="pomodoro.html" class="123">Productivity tools</a></p>
+      <div>
+        <p class="message">
+
+
+          Boost your productivity with our cutting-edge tools tailored to your needs. From Pomodoro
+          timer
+          to soothing music, we provide the perfect resources to enhance focus and optimise your
+          efficiency. You can customise the timer according to your comfort, and set the theme
+          according
+          to what suits you the best!
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const todo = document.getElementbyClassName("buttons").firstElementChild
+    todo.addEventListener("click", (e) => {
+      window.location.href = "todo_list.html"
+    })
+
+    const pomo=document.getElementbyClassName("123")
+    pomo.addEventListener("click", (e) => {
+      window.location.href = "pomodoro.html"
+    })
+  </script>
+
+
+</body>
+
+</html>
